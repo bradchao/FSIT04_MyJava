@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 public class BradWin extends JFrame{
 	private JButton open, save, exit;
 	
+	
 	public BradWin() {
 		super("Brad Window");
 	
