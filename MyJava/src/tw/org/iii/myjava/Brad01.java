@@ -37,6 +37,11 @@ public class Brad01 {
 		double var15 = 1.2e-4;	// 1.2 x 10 ^ 4
 		System.out.println(var15);
 		
+		boolean var16 = true;
+		boolean var17 = false;
+		
+		
+		
 		
 	}
 }
