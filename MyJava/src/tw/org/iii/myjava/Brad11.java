@@ -10,7 +10,29 @@ public class Brad11 {
 		b[1] = new int[3];
 		b[2] = new int[4];
 		
-		System.out.println(b[1].length);
+		b[0][1] = 123;
+		b[1][2] = 66;
+		b[2][1] = 100;
+		b[2][2] = 321;
+		
+		for (int[] v : b) {
+			for (int vv : v) {
+				System.out.print(vv + " ");
+			}
+			System.out.println();
+		}
+		System.out.println("---");
+		for (int i=0; i<b.length; i++) {
+			for (int j=0; j<b[i].length; j++) {
+				System.out.print(b[i][j] +" ");
+			}
+			System.out.println();
+		}
+		
+		
+		
+		
+		
 		
 		
 		
