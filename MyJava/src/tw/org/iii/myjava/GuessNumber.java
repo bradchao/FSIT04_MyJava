@@ -13,11 +13,14 @@ public class GuessNumber {
 		boolean isWinner = false;
 		for (int i=0; i<10; i++) {
 			String guess = JOptionPane.showInputDialog("輸入數字");
-			String result = checkAB(answer, guess);
-			JOptionPane.showMessageDialog(null, result);
-			if (result.equals("3A0B")) {
-				isWinner = true;
-				break;
+			
+			if (isRightInput(guess)) {
+				String result = checkAB(answer, guess);
+				JOptionPane.showMessageDialog(null, result);
+				if (result.equals("3A0B")) {
+					isWinner = true;
+					break;
+				}
 			}
 		}
 		
@@ -28,6 +31,11 @@ public class GuessNumber {
 		}
 		
 		
+	}
+	
+	static boolean isRightInput(String g) {
+		
+		return true;
 	}
 	
 	static String checkAB(String a, String g) {
