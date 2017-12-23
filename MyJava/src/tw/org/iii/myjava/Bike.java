@@ -7,7 +7,7 @@ public class Bike extends Object {
 	
 	// Constructor :建構式/建構子/建構方法
 	Bike(){
-		//System.out.println("Bike()");
+		System.out.println("Bike()");
 		setColor(3);
 	}
 	Bike(int color){
