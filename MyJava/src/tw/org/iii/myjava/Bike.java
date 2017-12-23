@@ -4,14 +4,17 @@ public class Bike extends Object {
 	private double speed;
 	private int gear; 
 	private int color;
+	static int count;
 	
 	// Constructor :建構式/建構子/建構方法
 	Bike(){
 		System.out.println("Bike()");
 		setColor(3);
+		count++;
 	}
 	Bike(int color){
 		setColor(color);
+		count++;
 	}
 	
 	@Override
