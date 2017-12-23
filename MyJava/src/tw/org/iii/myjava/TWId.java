@@ -2,6 +2,7 @@ package tw.org.iii.myjava;
 
 public class TWId {
 	private String id;
+	private static String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
 	
 	public TWId() {
 		this((int)(Math.random()*2)==0?true:false,
@@ -14,8 +15,18 @@ public class TWId {
 		this((int)(Math.random()*2)==0?true:false , area);
 	}
 	public TWId(boolean isMale, int area) {
+		String temp = letters.substring(area, area+1);
+		temp += isMale?"1":"2";
+		for (int i=0; i<7; i++) {
+			temp += (int)(Math.random()*10);
+		}
 		
-		
+		for (int i=0; i<10; i++) {
+			if (isRightTWId(temp + i)) {
+				temp += i;
+			}
+		}
+		id = temp;
 	}
 	
 //	public TWId(String id) {
@@ -27,7 +38,6 @@ public class TWId {
 		if (id.matches("^[A-Z][12][0-9]{8}$")) {
 			// 編碼檢查
 			String s12 = id.substring(0, 1);	// "A123456789" => "A"
-			String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
 			int n12 = letters.indexOf(s12) + 10;
 			int n1 = n12 / 10;
 			int n2 = n12 % 10;
