@@ -9,19 +9,10 @@ interface Shape {
 	double calLength();
 	double calArea();
 }
-class Circle implements Shape {
-	public double calLength() {
-		return 0;
-	}
-	public double calArea() {
-		return 0;
-	}
+interface OCJP {
+	void exam1();
+	void exam2();
 }
-class Tri implements Shape {
-	public double calLength() {
-		return 0;
-	}
-	public double calArea() {
-		return 0;
-	}
+interface Rectangle extends Shape, OCJP {
+	boolean isSquare();
 }

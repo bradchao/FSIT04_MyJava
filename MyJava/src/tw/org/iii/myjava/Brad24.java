@@ -1,23 +1,23 @@
 package tw.org.iii.myjava;
 
-import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class Brad24 extends JFrame{
-	private JButton open, save, exit;
+	private JTextField input;
+	private JButton guess;
+	private JTextArea log;
 	
 	public Brad24() {
 		super("My Window");
 	
-		open = new JButton("Open");
-		save = new JButton("Save");
-		exit = new JButton("Exit");
+		input = new JTextField();
+		guess = new JButton("猜");
+		log = new JTextArea();
 		
-		setLayout(new FlowLayout());
 		
-		add(open); add(save); add(exit);
 		
 		
 		setVisible(true);
