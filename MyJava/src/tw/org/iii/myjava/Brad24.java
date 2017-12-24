@@ -1,10 +1,24 @@
 package tw.org.iii.myjava;
 
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 public class Brad24 extends JFrame{
+	private JButton open, save, exit;
+	
 	public Brad24() {
 		super("My Window");
+	
+		open = new JButton("Open");
+		save = new JButton("Save");
+		exit = new JButton("Exit");
+		
+		setLayout(new FlowLayout());
+		
+		add(open); add(save); add(exit);
+		
 		
 		setVisible(true);
 		setSize(640, 480);
