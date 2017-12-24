@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -37,7 +38,28 @@ public class Brad24 extends JFrame implements ActionListener{
 		
 		guess.addActionListener(this);
 		guess.addActionListener(new MyActionListener());
+		guess.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				doGuess();
+			}
+		});
+		
 		log.addMouseMotionListener(new MyMouseListener());
+		log.addMouseMotionListener(new MouseMotionListener() {
+			
+			@Override
+			public void mouseMoved(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseDragged(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		// 1. Create a Answer
 		answer = createAnswer(3); 
@@ -114,5 +136,7 @@ public class Brad24 extends JFrame implements ActionListener{
 		return ret;
 	}
 	
-	
+	private void doGuess() {
+		
+	}
 }
