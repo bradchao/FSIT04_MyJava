@@ -5,19 +5,16 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Brad34 {
+public class Brad35 {
 	public static void main(String[] args) {
 		File file1 = new File("dir1/file1.txt");
 		if (file1.isFile() && file1.canRead()) {
 			try {
 				FileInputStream fin = 
 						new FileInputStream(file1);
-				
-				int length; byte[] buf = new byte[3];
-				while (  (length = fin.read(buf)) != -1) {
-					System.out.print(new String(buf,0,length));
-				}
-				
+				byte[] buf = new byte[(int)file1.length()];
+				fin.read(buf);
+				System.out.println(new String(buf));
 				
 				fin.close();
 //			} catch (FileNotFoundException e) {
