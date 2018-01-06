@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -59,8 +60,29 @@ public class MyEditor extends JFrame{
 			}
 		});
 		
+		saveAs.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				saveAsFile();
+			}
+		});
 		
-		
+	}
+	
+	private void saveAsFile() {
+		JFileChooser jfc = new JFileChooser();
+		if (jfc.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+			File saveFile = jfc.getSelectedFile();
+			try {
+				FileWriter writer = new FileWriter(saveFile);
+				writer.write(editarea.getText());
+				writer.flush();
+				writer.close();
+				JOptionPane.showMessageDialog(null, "Save as ... Success");
+			}catch(Exception e) {
+				System.out.println(e.toString());
+			}
+		}
 	}
 	
 	private void saveFile() {
@@ -74,6 +96,8 @@ public class MyEditor extends JFrame{
 			}catch(Exception ee) {
 				System.out.println(ee.toString());
 			}
+		}else {
+			saveAsFile();
 		}
 	}
 	
