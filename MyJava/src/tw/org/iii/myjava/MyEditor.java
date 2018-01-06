@@ -15,6 +15,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class MyEditor extends JFrame{
@@ -40,7 +41,8 @@ public class MyEditor extends JFrame{
 		top.add(clear);top.add(exit);
 		add(top, BorderLayout.NORTH);
 		
-		add(editarea, BorderLayout.CENTER);
+		JScrollPane jsp = new JScrollPane(editarea);
+		add(jsp, BorderLayout.CENTER);
 		
 		setSize(640, 480);
 		setVisible(true);
@@ -64,6 +66,21 @@ public class MyEditor extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				saveAsFile();
+			}
+		});
+		
+		clear.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				editarea.setText("");
+			}
+		});
+		
+		exit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if (openFile != null) saveFile();
+				System.exit(0);
 			}
 		});
 		
