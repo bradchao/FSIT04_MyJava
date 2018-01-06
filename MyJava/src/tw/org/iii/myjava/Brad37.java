@@ -10,8 +10,8 @@ public class Brad37 {
 		File file2 = new File("dir1/file2.txt");
 		try {
 			FileOutputStream fout = 
-					new FileOutputStream(file2);
-			fout.write("Hello, III".getBytes());
+					new FileOutputStream(file2, true);
+			fout.write("Hello, III\n".getBytes());
 			fout.flush();
 			fout.close();
 			System.out.println("OK");
