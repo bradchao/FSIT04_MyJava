@@ -38,11 +38,8 @@ public class MyDrawer extends JPanel {
 	
 	private void doNewLine(MouseEvent event) {
 		LinkedList<HashMap<String, Integer>> line = new LinkedList<>();
-		HashMap<String,Integer> dot = new HashMap<>();
-		dot.put("x", event.getX());
-		dot.put("y", event.getY());
-		line.add(dot);
 		lines.add(line);
+		doMouseEvent(event);
 	}
 	
 	private void doMouseEvent(MouseEvent event) {
@@ -53,6 +50,10 @@ public class MyDrawer extends JPanel {
 		repaint();
 	}
 
+	public void clear() {
+		lines.clear();
+		repaint();
+	}
 	
 	@Override
 	protected void paintComponent(Graphics g) {
