@@ -9,11 +9,13 @@ public class Brad46 {
 		try {
 			ObjectInputStream oin = 
 				new ObjectInputStream(
-					new FileInputStream("dir1/s1.dat"));
-			Object obj1 = oin.readObject();
-			Student s1 = (Student)obj1;
-			System.out.println(s1.calSum());
-			System.out.println(s1.calAvg());
+					new FileInputStream("dir1/student.dat"));
+			Student s1 = (Student)oin.readObject();
+			Student s2 = (Student)oin.readObject();
+			Student s3 = (Student)oin.readObject();
+			System.out.println(s1.name);
+			System.out.println(s2.name);
+			System.out.println(s3.name);
 			oin.close();
 		} catch (IOException | ClassNotFoundException e) {
 			System.out.println(e.toString());
