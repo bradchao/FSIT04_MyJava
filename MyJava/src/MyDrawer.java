@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import javax.swing.JPanel;
 
 public class MyDrawer extends JPanel {
-	private LinkedList<LinkedList<HashMap<String, Integer>>> lines;
+	private LinkedList<LinkedList<HashMap<String, Integer>>> lines, recycler;
 	
 	public MyDrawer() {
 		setBackground(Color.GREEN);
@@ -33,6 +33,7 @@ public class MyDrawer extends JPanel {
 		});
 		
 		lines = new LinkedList<>();
+		recycler = new LinkedList<>();
 		
 	}
 	
@@ -40,6 +41,8 @@ public class MyDrawer extends JPanel {
 		LinkedList<HashMap<String, Integer>> line = new LinkedList<>();
 		lines.add(line);
 		doMouseEvent(event);
+		
+		recycler.clear();
 	}
 	
 	private void doMouseEvent(MouseEvent event) {
@@ -53,6 +56,20 @@ public class MyDrawer extends JPanel {
 	public void clear() {
 		lines.clear();
 		repaint();
+	}
+	
+	public void undo() {
+		if (lines.size()>0) {
+			recycler.add(lines.removeLast());
+			repaint();
+		}
+	}
+
+	public void redo() {
+		if (recycler.size()>0) {
+			lines.add(recycler.removeLast());
+			repaint();
+		}
 	}
 	
 	@Override

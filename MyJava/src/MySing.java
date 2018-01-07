@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class MySing extends JFrame {
-	private JButton clear;
+	private JButton clear, undo, redo;
 	private MyDrawer drawer;
 	
 	public MySing() {
@@ -16,8 +16,10 @@ public class MySing extends JFrame {
 		setLayout(new BorderLayout());
 		
 		clear = new JButton("Clear");
+		undo = new JButton("Undo");
+		redo = new JButton("Redo");
 		JPanel top = new JPanel(new FlowLayout());
-		top.add(clear);
+		top.add(clear); top.add(undo); top.add(redo);
 		add(top, BorderLayout.NORTH);
 		
 		drawer = new MyDrawer();
@@ -33,6 +35,21 @@ public class MySing extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				drawer.clear();
+			}
+		});
+		
+		undo.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				drawer.undo();
+			}
+		});
+		redo.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				drawer.redo();
 			}
 		});
 		
